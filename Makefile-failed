@@ -1,0 +1,49 @@
+#   Makefile
+#   Version 
+#   Author: WildfootW
+#   GitHub: github.com/WildfootW
+#   Copyright (C) 2019-2020 WildfootW All rights reserved.
+
+CXX                 := clang++
+MAKE                := make
+CXXFLAGS_LINK        = -Wl
+CXXFLAGS_COMPILE     = -c -std=c++11 -Wall -Os -DNDEBUG
+
+SRCS = Snake Grading
+TARGET = grading
+
+.PHONY: grading grading_test print_test snake_test
+grading_test:   SRCS = PrintTerminal Snake Grading
+print_test:     SRCS = PrintTerminal PrintTerminal_test
+snake_test:     SRCS = PrintTerminal Snake Snake_test
+grading_test:   TARGET = grading_test
+print_test:     TARGET = print_test
+snake_test:     TARGET = snake_test
+# [TODO] failed
+grading_test print_test snake_test: CXXFLAGS_COMPILE = -c -std=c++11 -Wall -Os
+
+SRCOBJS = $(addsuffix .o, $(SRCS))
+
+.PHONY: all
+all: grading
+
+grading grading_test print_test snake_test: compile link
+
+.PHONY: compile
+compile:
+	@for var in $(SRCS) ; do \
+		$(MAKE) $$var.o ; \
+	done
+
+%.o: %.cpp
+	${CXX} ${CXXFLAGS_COMPILE} $< -o $@
+
+
+.PHONY: link
+link:
+	$(CXX) ${CXXFLAGS_LINK} $(SRCOBJS) -o ${TARGET}.out
+
+.PHONY: clean
+clean:
+	rm -f *.out *.o
+

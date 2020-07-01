@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+project(final)
+set (CMAKE_CXX_STANDARD 11)
+add_executable(print_test.out PrintTerminal_test.cpp PrintTerminal.cpp)
+add_executable(snake_test.out Snake_test.cpp Snake.cpp PrintTerminal.cpp)
+set_target_properties(snake_test.out PROPERTIES COMPILE_FLAGS "-D SNAKE_TESTING -g")
+add_executable(grading_with_output.out Grading.cpp Snake.cpp PrintTerminal.cpp)
+set_target_properties(grading_with_output.out PROPERTIES COMPILE_FLAGS "-D GRADING_TESTING")
+add_executable(grading.out Grading.cpp Snake.cpp)
+#set_target_properties(grading.out PROPERTIES COMPILE_FLAGS "-g")
+
