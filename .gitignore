@@ -3,7 +3,7 @@
 *.swp
 *.o
 
-Final/src/Makefile
+src/Makefile
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles

@@ -189,8 +189,10 @@ queue<tuple<int, int>> Snake::nextPosition(const vector<vector<int>>& currentMap
 
     static Solver::BaseSolver* solver = nullptr;
     if(solver == nullptr)
+    {
         solver = new Solver::GreedySolver(current_map);
         //solver = new Solver::BFSSolver(current_map);
+    }
     Point new_head = solver->next_position(current_position);
 
     /* execute */

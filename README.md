@@ -1,4 +1,8 @@
-# NTU IM DSAP Final Project
+# Snake Game
+## Todo
+* Replace grading with implement snake game
+* Break Solver into different Strategy (z.B. BFSStrategy, BFSEnsureStrategy, RunAfterTailStrategy, NearbyEmptyBlockStrategy)
+
 ## Problem Description
 - There will only be 4 walls and 1 point in the simplest map i.e. first stage. New rules will be released when the student passing the first stage. The rule of current second stage is that there will be 4 walls and multi-points, and the grade of each point is different.
 - No matter what points the snake eats, the length of snake will only increase by 1 unit.
